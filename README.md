@@ -25,3 +25,8 @@ npm run dev
 cd 101419420_comp3133_assignment2  
 npm install  
 ng serve  
+
+## Deployment
+
+Due to time constraints, the application was tested locally.
+Backend and frontend are fully functional when run locally.
