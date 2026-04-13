@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './signup.html',
   styleUrl: './signup.css'
@@ -24,11 +25,10 @@ export class Signup {
 
   onSubmit() {
     if (this.signupForm.invalid) {
-      this.signupForm.markAllAsTouched();
+      this.signupForm.markAllAsTouched();  // 🔥 THIS IS THE FIX
       return;
     }
 
     console.log('Signup data:', this.signupForm.value);
-    this.router.navigate(['/login']);
   }
 }

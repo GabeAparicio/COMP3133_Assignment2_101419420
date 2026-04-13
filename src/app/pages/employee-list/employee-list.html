@@ -1,1 +1,55 @@
-<h2>Employee List</h2>
+<div class="container mt-4">
+
+  <h2>Employee List</h2>
+
+  <button (click)="goToAddEmployee()" style="margin-bottom: 15px;">
+    + Add Employee
+  </button>
+
+  <p *ngIf="loading">Loading employees...</p>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div style="margin-bottom: 20px;">
+    <input placeholder="Search by Department" [(ngModel)]="searchDepartment">
+    <input placeholder="Search by Designation" [(ngModel)]="searchDesignation">
+    <button style="background:#2563eb;color:white;padding:6px 10px;border:none;border-radius:6px;" (click)="search()">Search</button>
+    <button style="background:#6b7280;color:white;padding:6px 10px;border:none;border-radius:6px;" (click)="loadAll()">Reset</button>
+  </div>
+
+  <table *ngIf="!loading && employees.length > 0" border="1">
+    <thead>
+    <tr>
+      <th>Photo</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>
+        <img
+          *ngIf="employee.employee_photo"
+          [src]="employee.employee_photo"
+          width="50"
+          height="50"
+          style="object-fit: cover; border-radius: 5px;"
+        >
+      </td>
+      <td>{{ employee.first_name }}</td>
+      <td>{{ employee.last_name }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.department }}</td>
+      <td>
+        <button style="background:#0ea5e9;color:white;padding:6px 10px;border:none;border-radius:6px;" (click)="viewEmployee(employee._id)">View</button>
+
+        <button style="background:#f59e0b;color:white;padding:6px 10px;border:none;border-radius:6px;" (click)="editEmployee(employee._id)">Edit</button>
+
+        <button style="background:#ef4444;color:white;padding:6px 10px;border:none;border-radius:6px;" (click)="deleteEmployee(employee._id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

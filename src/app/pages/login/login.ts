@@ -5,13 +5,13 @@ import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class Login {
   errorMessage = '';
-
   loginForm;
 
   constructor(
@@ -32,7 +32,6 @@ export class Login {
     }
 
     const { email, password } = this.loginForm.value;
-
     const success = this.authService.login(email!, password!);
 
     if (success) {

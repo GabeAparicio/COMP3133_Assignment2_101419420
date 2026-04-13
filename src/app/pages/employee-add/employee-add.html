@@ -1,1 +1,18 @@
-<h2>Add Employee</h2>
+<div class="container mt-4">
+  <h2>Add Employee</h2>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    <input placeholder="First Name" formControlName="first_name"><br><br>
+    <input placeholder="Last Name" formControlName="last_name"><br><br>
+    <input placeholder="Email" formControlName="email"><br><br>
+    <input placeholder="Gender" formControlName="gender"><br><br>
+    <input placeholder="Designation" formControlName="designation"><br><br>
+    <input type="number" placeholder="Salary" formControlName="salary"><br><br>
+    <input type="date" formControlName="date_of_joining"><br><br>
+    <input placeholder="Department" formControlName="department"><br><br>
+
+    <input type="file" (change)="onFileSelected($event)"><br><br>
+    <button type="submit">Add Employee</button>
+  </form>
+</div>

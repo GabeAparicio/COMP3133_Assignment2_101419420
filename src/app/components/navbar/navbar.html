@@ -1,35 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/employees">EMS</a>
+<div style="background:#1f2937;color:white;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;">
 
-        <div class="collapse navbar-collapse show">
-            <ul class="navbar-nav me-auto">
-                @if (authService.isLoggedIn()) {
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/employees">Employees</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/employees/add">Add</a>
-                </li>
-                }
-            </ul>
-
-            <ul class="navbar-nav ms-auto">
-                @if (!authService.isLoggedIn()) {
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/login">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" routerLink="/signup">Signup</a>
-                </li>
-                }
-
-                @if (authService.isLoggedIn()) {
-                <li class="nav-item">
-                  <button class="btn btn-danger" (click)="logout()">Logout</button>
-                </li>
-                }
-            </ul>
-        </div>
+    <div>
+        <span style="font-weight:bold;">Employee App</span>
     </div>
-</nav>
+
+    <div style="display:flex;gap:10px;">
+        <button (click)="goToEmployees()" style="background:#2563eb;color:white;border:none;padding:6px 10px;border-radius:6px;">
+            Employees
+        </button>
+
+        <button (click)="goToAdd()" style="background:#10b981;color:white;border:none;padding:6px 10px;border-radius:6px;">
+            Add
+        </button>
+
+        <button (click)="logout()" style="background:#ef4444;color:white;border:none;padding:6px 10px;border-radius:6px;">
+            Logout
+        </button>
+    </div>
+
+</div>
